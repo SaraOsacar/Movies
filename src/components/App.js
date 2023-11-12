@@ -14,6 +14,7 @@ const FEATURED_API = "http://api.themoviedb.org/3/discover/movie?sort_by=popular
 function App() {
 
   const [ movies, setMovies] = useState([]);
+  const [ searchTerm, setSearchTerm ] = useState('');
  
   useEffect(() => {
  fetch(FEATURED_API)
@@ -24,15 +25,33 @@ function App() {
  });
 },[]);
 
+ const handleOnSubmit = (e) => {
+  e.preventDefault();
+ };
 
+ const handleOnChange = (e) => {
+  setSearchTerm(e.target.value);
+
+ }
 
 return (
+  <>
+    <header>
+      <form onSubmit={handleOnSubmit}>
+        <input type="text" 
+        placeholder="Search" 
+        className="search"
+         value={searchTerm}
+         onChange={handleOnChange} />
+      </form>
+    </header>
+
     <div className="movie-container">
-      {movies.length > 0 && movies.map((movie) => 
-        <Movie key={movie.id} {...movie} />
-        )}
+      {movies.length > 0 &&
+        movies.map((movie) => <Movie key={movie.id} {...movie} />)}
     </div>
-  );
+  </>
+);
 }
 
 
