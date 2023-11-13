@@ -51,19 +51,27 @@ function App() {
 return (
   <>
     <header>
-      <form onSubmit={handleOnSubmit}>
-        <input type="text" 
-        placeholder="Search" 
-        className="search"
-         value={searchTerm}
-         onChange={handleOnChange} />
-      </form>
+      <div className="title">
+        <h1>movie search</h1>
+        <form onSubmit={handleOnSubmit}>
+          <input
+            type="text"
+            placeholder="Search..."
+            className="search"
+            value={searchTerm}
+            onChange={handleOnChange}
+          />
+        </form>
+      </div>
     </header>
 
     <div className="movie-container">
       {movies.length > 0 &&
         movies.map((movie) => <Movie key={movie.id} {...movie} />)}
     </div>
+    <footer className="footer">
+      © 2023 Movie Search App. All rights reserved
+    </footer>
   </>
 );
 }
