@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
 const setVoteClass = (vote) => {
@@ -21,7 +21,9 @@ const Movie = ({
 }) => (
   <div className="movie">
     <img
-      src={poster_path ? (IMG_API + poster_path)
+      src={
+        poster_path
+          ? IMG_API + poster_path
           : 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW92aWVzfGVufDB8fDB8fHww'
       }
       alt={title}
