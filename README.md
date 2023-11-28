@@ -8,6 +8,8 @@ Proyecto desarrollado en react que consiste en un buscador de películas que per
 
 - Se utiliza una API de películas que ofrece información y datos precisos/actualizados.
 
+- Aquellas películas que no dispongan de imagen de archivo compartirán todas una misma cover común.
+
 
  ### Herramientas utilizadas ⚒️:
 
